@@ -29,13 +29,13 @@ class NavBar extends Component {
       </Menu.Menu>
     );
   }
-
+  
   render() {
     return (
       <div>
         <Menu pointing secondary>
           <Link to="/">
-            <Menu.Item name="home" />
+            <Menu.Item name="Tribe Time" />
           </Link>
           { this.rightNavs() }
         </Menu>
@@ -49,4 +49,3 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(connect(mapStateToProps)(NavBar));
-

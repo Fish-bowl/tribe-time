@@ -1,0 +1,34 @@
+Tribe Time 
+
+----- What is it ---------
+allows you to trade your time within your community (tribe) for goods and services instead of cash
+uses a time and skill based coin to trade
+
+--users---
+have a profile 
+set own coins worth within reason 
+create tribes of people 
+
+
+
+---issues to be addressed ----
+1).
+coin = coin / coin != coin issue. 
+how to compensate for longer and more involved tasks than one can trade for.
+2).
+fraudulent services
+the community would self regulate based upon reviews and profile standings sort of like reddits gold and silver.
+but say dave gets mike to fix his sink and after its fixed he refused to paint mikes house.
+this is the greatest flaw in the apps inherent desihn and would require a legal team to provide recourse for mike within the company = nessesary startup capital. 
+
+
+----potential solutions----
+1). 
+have people buy with real money their own coins and create an algorithm to exchange the currency... ex dave is a house painter, mike is a plumber. the time required for dave to paint is greater than mikes to fix his sink. therefore dave's coin is worth 3 and mikes is worth 1. mike would need to purchase coins until they are equal in value (-his time for fixing the sink).
+
+2).
+have an air bnb style service check where we send a representative to inspect the skills/effacacy of persons skill. perhaps people with degrees or certificates are exempt
+-
+another solution is to have a mandatory buy in, prohibiting a mojority of leeches from entering the site but in turn creates a high entry barrier that would limit takeoff....
+-
+another alternate solution is to have each party actually pay cash to the site for the service. the funds are then converted to coins and held until the service is completed as satisfatory. meaning mike and dave each pay for the service in full to the site. the site holds the funds until both parties have completed the tasks at which point the money is relesed to each party
