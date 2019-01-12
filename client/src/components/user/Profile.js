@@ -12,8 +12,8 @@ class Profile extends React.Component {
         <Header as='h1' textAlign='center'>
           Profile
         </Header>
-        <Segment>
-
+        <Segment inverted>
+        
         </Segment>
       </div>
     )

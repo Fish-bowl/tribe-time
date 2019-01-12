@@ -1,5 +1,7 @@
 set up basic schema relations between users 
 
+make navbar reflect what page you're on by keeping track of current page in state 
+
 scaffold out website
 
 native?
