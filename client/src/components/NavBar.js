@@ -8,9 +8,8 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../reducers/user';
 
 class NavBar extends Component {
-  state = {
-    currentPage: 'Tribe Time'
-  }
+  state = {}
+
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
@@ -36,30 +35,81 @@ class NavBar extends Component {
     );
   }
 
+  handleItemClick = (e, {name}) => this.setState({ activeItem: name})
+
   // handleClick = () => {
   //   this.setState({currentPage: this.name})
-  // }
-  
+  // }\
+
   render() {
+    const {activeItem} = this.state
     return (
       <div>
-        <Menu pointing secondary>
-          <Link to="/">
-            <Menu.Item onClick={() => this.setState({currentPage: 'Home'})} name="Tribe Time" />
-          </Link>
-          <Dropdown item text="Profile" onClick={() => this.setState({ currentPage: 'Profile' })} >
+        <Menu tabular>
+          <Menu.Item active={activeItem === 'Home'} as={Link} to='/' name='Home' />
+          <Menu.Item active={activeItem === 'Profile'} as={Link} to='/profile' name='Profile' />
+
+          <Menu.Menu>
+            <Dropdown item icon='settings'>
               <Dropdown.Menu>
-                <Dropdown.Item as={Link} to='/profile'>Profile</Dropdown.Item>
-                <Dropdown.Item onClick={() => this.setState({currentPage: 'Wallet'})} as={Link} to='/wallet'>Wallet</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => this.setState({ currentPage: 'Profile' })}
+                  as={Link}
+                  to='/profile'
+                >
+                  Profile
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => this.setState({ currentPage: 'Wallet' })}
+                  as={Link}
+                  to='/wallet'
+                >
+                  Wallet
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          {this.state.currentPage}
-          { this.rightNavs() }
+          </Menu.Menu>
         </Menu>
       </div>
-    );
+    )
   }
 }
+  
+//   render() {
+//     return (
+//       <div>
+//         <Menu tabular style={{display: 'flex', }}>
+//           <Link to="/">
+//             <Menu.Item onClick={() => this.setState({currentPage: 'Home'})} name="Tribe Time" />
+//           </Link>
+//           <Dropdown item text="Profile" >
+//               <Dropdown.Menu>
+                // <Dropdown.Item 
+                //   onClick={() => this.setState({ currentPage: 'Profile' })} 
+                //   as={Link} 
+                //   to='/profile'
+                // >
+                //   Profile
+                // </Dropdown.Item>
+                // <Dropdown.Item 
+                //   onClick={() => this.setState({currentPage: 'Wallet'})} 
+                //   as={Link} 
+                //   to='/wallet'
+                // >
+                //   Wallet
+                // </Dropdown.Item>
+//               </Dropdown.Menu>
+//             </Dropdown>
+//             <Menu.Header as='h1'>
+//               {this.state.currentPage}
+//             </Menu.Header>
+         
+//           { this.rightNavs() }
+//         </Menu>
+//       </div>
+//     );
+//   }
+// }
 
 const mapStateToProps = state => {
   return { user: state.user, currentPage: state.currentPage }
