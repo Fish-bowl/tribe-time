@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { 
+  Menu,
+  Dropdown 
+} from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../reducers/user';
@@ -26,9 +29,6 @@ class NavBar extends Component {
         <Link to="/login">
           <Menu.Item name="Login" />
         </Link>
-        <Link to='/profile'>
-          <Menu.Item name='Profile' />
-        </Link>
       </Menu.Menu>
     );
   }
@@ -40,6 +40,12 @@ class NavBar extends Component {
           <Link to="/">
             <Menu.Item name="Tribe Time" />
           </Link>
+            <Dropdown item text="Profile">
+              <Dropdown.Menu>
+                <Dropdown.Item as={Link} to='/profile'>Profile</Dropdown.Item>
+                <Dropdown.Item as={Link} to='/wallet'>Wallet</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           { this.rightNavs() }
         </Menu>
       </div>
