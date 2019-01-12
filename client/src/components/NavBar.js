@@ -10,12 +10,49 @@ import { handleLogout } from '../reducers/user';
 class NavBar extends Component {
   state = {}
 
+  mainNavs = () => {
+    const {activeItem} = this.state
+
+    return (
+      <Menu.Menu>
+        <Menu.Item active={activeItem === 'Home'} as={Link} to='/' name='Home' />
+        <Menu.Item active={activeItem === 'Profile'} as={Link} to='/profile' name='Profile' />
+      </Menu.Menu>
+    )
+  }
+
+  dropdownNavs = () => {
+    return (
+      <Menu.Menu>
+        <Dropdown item icon='settings'>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              onClick={() => this.setState({ currentPage: 'Profile' })}
+              as={Link}
+              to='/profile'
+            >
+              Profile
+                </Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => this.setState({ currentPage: 'Wallet' })}
+              as={Link}
+              to='/wallet'
+            >
+              Wallet
+                </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Menu.Menu>
+    )
+  }
+
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+          {this.dropdownNavs()}
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
@@ -45,30 +82,10 @@ class NavBar extends Component {
     const {activeItem} = this.state
     return (
       <div>
-        <Menu tabular>
-          <Menu.Item active={activeItem === 'Home'} as={Link} to='/' name='Home' />
-          <Menu.Item active={activeItem === 'Profile'} as={Link} to='/profile' name='Profile' />
+        <Menu attached='bottom' stackable tabular>
+          {this.mainNavs()}
 
-          <Menu.Menu>
-            <Dropdown item icon='settings'>
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  onClick={() => this.setState({ currentPage: 'Profile' })}
-                  as={Link}
-                  to='/profile'
-                >
-                  Profile
-                </Dropdown.Item>
-                <Dropdown.Item
-                  onClick={() => this.setState({ currentPage: 'Wallet' })}
-                  as={Link}
-                  to='/wallet'
-                >
-                  Wallet
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu.Menu>
+          {this.rightNavs()}
         </Menu>
       </div>
     )
