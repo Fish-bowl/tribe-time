@@ -5,6 +5,8 @@ import {
   Grid,
 } from 'semantic-ui-react'
 
+import UserFeed from './UserFeed'
+
 class Profile extends React.Component {
   render() {
     return (
@@ -13,7 +15,7 @@ class Profile extends React.Component {
           Profile
         </Header>
         <Segment inverted>
-        
+          <UserFeed />
         </Segment>
       </div>
     )
